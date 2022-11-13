@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="category_button"
+        parent="TextAppearance.MaterialComponents.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="tintMode">multiply</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+</resources>

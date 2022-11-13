@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cancel_filter_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cancel"
+        app:fabSize="mini"
+        app:tint="@null"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
+        style="?attr/floatingActionButtonSmallStyle"
+        android:backgroundTint="@color/dark_blue"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cancel_filter_button"
+        app:layout_constraintEnd_toStartOf="@id/search_filter_button"
+        android:text="Filter options"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_blue"
+        android:fontFamily="@font/mark_pro"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/search_filter_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/orange"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        android:fontFamily="@font/mark_pro"
+        app:cornerRadius="8dp"
+        android:layout_marginEnd="4dp"/>
+
+    <TextView
+
+        android:id="@+id/brand_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/cancel_filter_button"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"
+        android:text="Brand"
+        android:textColor="@color/dark_blue"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:fontFamily="@font/mark_pro"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/brand"
+        app:layout_constraintTop_toBottomOf="@id/brand_label"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/brand_filter"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/dark_blue"
+            android:textAllCaps="false"
+            android:fontFamily="@font/mark_pro"
+            android:textSize="20sp"
+            app:simpleItems="@array/brands_list"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+
+        android:id="@+id/price_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/brand"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="Price"
+        android:textColor="@color/dark_blue"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:fontFamily="@font/mark_pro"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/price"
+        app:layout_constraintTop_toBottomOf="@id/price_label"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/price_filter"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/dark_blue"
+            android:textAllCaps="false"
+            android:fontFamily="@font/mark_pro"
+            android:textSize="20sp"
+            app:simpleItems="@array/prices_list"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+
+        android:id="@+id/size_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="Size"
+        android:textColor="@color/dark_blue"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:fontFamily="@font/mark_pro"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/size"
+        app:layout_constraintTop_toBottomOf="@id/size_label"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingBottom="40dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/size_filter"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/dark_blue"
+            android:textAllCaps="false"
+            android:fontFamily="@font/mark_pro"
+            android:textSize="20sp"
+            app:simpleItems="@array/sizes_list"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
