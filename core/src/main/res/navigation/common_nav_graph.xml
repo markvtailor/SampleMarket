@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/common_nav_graph"
+    app:startDestination="@id/mainScreenFragment">
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.markvtls.feature_details.presentation.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+
+    <action android:id="@+id/action_global_detailsFragment" app:destination="@id/detailsFragment"/>
+    <action android:id="@+id/action_global_mainScreenFragment" app:destination="@+id/mainScreenFragment"/>
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.markvtls.feature_main_screen.presentation.fragments.MainScreenFragment"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" />
+</navigation>

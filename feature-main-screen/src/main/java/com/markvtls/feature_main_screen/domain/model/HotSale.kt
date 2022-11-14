@@ -11,4 +11,6 @@ internal data class HotSale (
     val picture: String,
     @Json(name = "is_buy")
     val isBuy: Boolean
-): StockItem
+): StockItem {
+    override val itemId: Int = id
+}

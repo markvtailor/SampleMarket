@@ -16,3 +16,4 @@ rootProject.name = "PhoneMarket"
 include ':app'
 include ':feature-main-screen'
 include ':core'
+include ':feature-details'

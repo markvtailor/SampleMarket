@@ -17,11 +17,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import com.markvtls.feature_main_screen.R
 import com.markvtls.feature_main_screen.databinding.FragmentMainScreenBinding
 import com.markvtls.feature_main_screen.domain.model.BestSale
 import com.markvtls.feature_main_screen.domain.model.HotSale
 import com.markvtls.feature_main_screen.presentation.MainScreenViewModel
+import com.markvtls.feature_main_screen.presentation.adapters.MainScreenAdapter
 import com.markvtls.feature_main_screen.presentation.adapters.MainScreenDelegates
 import com.markvtls.feature_main_screen.presentation.adapters.base.StockHorizontalItem
 import com.markvtls.feature_main_screen.presentation.adapters.base.StockVerticalItem
@@ -36,10 +39,7 @@ internal class MainScreenFragment : Fragment() {
     private var _binding: FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainScreenViewModel by viewModels()
-    private val adapter = ListDelegationAdapter(
-        MainScreenDelegates.horizontalStockItemDelegate,
-        MainScreenDelegates.verticalStockItemDelegate
-    )
+    private val adapter = MainScreenAdapter { toItemDetails() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getMarketStock()
@@ -84,8 +84,6 @@ internal class MainScreenFragment : Fragment() {
                 }
             }
 
-
-
             filter.setOnClickListener {
                 filterSheet.show(childFragmentManager, FilterBottomSheet.TAG)
             }
@@ -113,7 +111,7 @@ internal class MainScreenFragment : Fragment() {
         recyclerView.adapter = adapter
         adapter.apply {
             items = listOf(StockHorizontalItem(hotSales), StockVerticalItem(bestSales))
-            notifyDataSetChanged()
+
         }
 
     }
@@ -144,6 +142,9 @@ internal class MainScreenFragment : Fragment() {
         inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
     }
 
+     private fun toItemDetails() {
+        findNavController().navigate(com.markvtls.core.R.id.action_global_detailsFragment)
+    }
     companion object {
         val filterSheet = FilterBottomSheet()
     }

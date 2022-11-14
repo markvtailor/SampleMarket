@@ -41,6 +41,7 @@ var nav_version = "2.5.3"
 dependencies {
 
     implementation project(":feature-main-screen")
+    implementation project(":feature-details")
     implementation project(":core")
 
 

@@ -5,4 +5,6 @@ import com.markvtls.feature_main_screen.domain.model.StockItem
 
 internal data class StockHorizontalItem (
     val horizontalSales: List<StockItem>
-        ): StockItem
+): StockItem {
+    override val itemId: Int = horizontalSales.hashCode()
+}

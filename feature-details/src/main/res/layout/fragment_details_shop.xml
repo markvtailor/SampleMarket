@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.DetailsShopFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:baselineAligned="false">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_cpu"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/CPU_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/dark_gray"
+                android:textSize="12sp"
+                android:fontFamily="@font/mark_pro"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_camera"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/camera_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/dark_gray"
+                android:textSize="12sp"
+                android:fontFamily="@font/mark_pro"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_ram"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/RAM_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/dark_gray"
+                android:textSize="12sp"
+                android:fontFamily="@font/mark_pro"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_sd_card"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/storage_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/dark_gray"
+                android:textSize="12sp"
+                android:fontFamily="@font/mark_pro"/>
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Select color and capacity"
+        android:textColor="@color/dark_blue"
+        android:fontFamily="@font/mark_pro"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+
+    <LinearLayout
+        android:layout_marginStart="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+
+            <RadioGroup
+                android:id="@+id/color_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/color_one_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:rippleColor="@android:color/transparent"
+                            app:srcCompat="@drawable/ic_empty_space"
+                            app:fabCustomSize="40dp"
+                            app:elevation="0dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:tint="@null"
+                            style="?attr/floatingActionButtonSmallStyle"
+                            app:shapeAppearance="@style/Widget.Material3.Button.Icon"
+                            />
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/color_one"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@android:color/transparent"
+                            android:button="@null"
+                            />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/color_two_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:rippleColor="@android:color/transparent"
+                            android:foregroundGravity="center_vertical"
+                            app:srcCompat="@drawable/ic_empty_space"
+                            app:fabCustomSize="40dp"
+                            app:elevation="0dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:tint="@null"
+                            style="?attr/floatingActionButtonSmallStyle"
+                            app:shapeAppearance="@style/Widget.Material3.Button.Icon"
+                            />
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/color_two"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@android:color/transparent"
+                            android:button="@null"
+                            />
+
+
+
+
+
+
+
+            </RadioGroup>
+
+
+
+
+
+
+            <RadioGroup
+                android:id="@+id/capacity_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/capacity_option_one_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        app:rippleColor="@android:color/transparent"
+                        android:backgroundTint="@android:color/transparent"
+                        android:textColor="@color/dark_gray"
+                        app:strokeWidth="0dp"
+                        app:cornerRadius="12dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/capacity_one"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@android:color/transparent"
+                        android:button="@null"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/capacity_option_two_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        app:rippleColor="@android:color/transparent"
+                        android:backgroundTint="@android:color/transparent"
+                        android:textColor="@color/dark_gray"
+                        app:strokeWidth="0dp"
+                        app:cornerRadius="12dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/capacity_two"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@android:color/transparent"
+                        android:button="@null"
+                        />
+
+
+
+
+            </RadioGroup>
+
+
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_to_cart_button"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/white"
+        android:fontFamily="@font/mark_pro_bold"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:cornerRadius="8dp"/>
+</LinearLayout>

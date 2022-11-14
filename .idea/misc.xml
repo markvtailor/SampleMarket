@@ -4,8 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17760416666666667" />
+        <entry key="core/src/main/res/drawable/ic_back.xml" value="0.238" />
+        <entry key="core/src/main/res/drawable/ic_basket.xml" value="0.238" />
+        <entry key="core/src/main/res/drawable/ic_check.xml" value="0.1255" />
+        <entry key="core/src/main/res/drawable/ic_empty_space.xml" value="0.1255" />
+        <entry key="core/src/main/res/drawable/ic_favorite.xml" value="0.249" />
+        <entry key="core/src/main/res/drawable/ic_favorite_filled.xml" value="0.1735" />
         <entry key="core/src/main/res/drawable/search_field.xml" value="0.1" />
         <entry key="core/src/main/res/font/mark_pro.xml" value="0.3314814814814815" />
+        <entry key="feature-details/src/main/res/drawable/ic_camera.xml" value="0.2485" />
+        <entry key="feature-details/src/main/res/drawable/ic_cpu.xml" value="0.2485" />
+        <entry key="feature-details/src/main/res/drawable/ic_ram.xml" value="0.2485" />
+        <entry key="feature-details/src/main/res/drawable/ic_sd_card.xml" value="0.1695" />
+        <entry key="feature-details/src/main/res/layout/fragment_details.xml" value="1.0" />
+        <entry key="feature-details/src/main/res/layout/fragment_details_features.xml" value="0.35052083333333334" />
+        <entry key="feature-details/src/main/res/layout/fragment_details_shop.xml" value="0.25" />
+        <entry key="feature-details/src/main/res/layout/fragment_details_text.xml" value="0.17760416666666667" />
+        <entry key="feature-details/src/main/res/layout/image_card.xml" value="0.26595323028141105" />
         <entry key="feature-main-screen/src/main/res/drawable/ic_books.xml" value="0.1" />
         <entry key="feature-main-screen/src/main/res/drawable/ic_computer.xml" value="0.1" />
         <entry key="feature-main-screen/src/main/res/drawable/ic_favorite.xml" value="0.1" />

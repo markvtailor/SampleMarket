@@ -5,10 +5,11 @@ import com.markvtls.feature_main_screen.domain.use_cases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 internal class UseCaseModule {
     @Provides
     fun provideGetStockInfoUseCase(repository: MarketStockRepository) = GetStockInfoUseCase(repository)

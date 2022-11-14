@@ -12,4 +12,6 @@ internal data class BestSale (
     @Json(name = "discount_price")
     val discountPrice: Int,
     val picture: String
-): StockItem
+): StockItem {
+    override val itemId: Int = id
+}
