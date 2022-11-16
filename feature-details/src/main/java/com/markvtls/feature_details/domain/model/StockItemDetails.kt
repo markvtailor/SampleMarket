@@ -1,6 +1,6 @@
 package com.markvtls.feature_details.domain.model
 
-data class StockItemDetails(
+internal data class StockItemDetails(
     val CPU: String,
     val camera: String,
     val capacity: List<String>,

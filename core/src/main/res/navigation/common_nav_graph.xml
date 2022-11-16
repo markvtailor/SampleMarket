@@ -6,16 +6,23 @@
     app:startDestination="@id/mainScreenFragment">
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.markvtls.feature_details.presentation.DetailsFragment"
+        android:name="com.markvtls.feature_details.presentation.fragments.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" />
 
     <action android:id="@+id/action_global_detailsFragment" app:destination="@id/detailsFragment"/>
     <action android:id="@+id/action_global_mainScreenFragment" app:destination="@+id/mainScreenFragment"/>
+    <action android:id="@+id/action_global_cartFragment" app:destination="@+id/cartFragment"/>
 
     <fragment
         android:id="@+id/mainScreenFragment"
         android:name="com.markvtls.feature_main_screen.presentation.fragments.MainScreenFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.markvtls.feature_cart.presentation.fragments.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

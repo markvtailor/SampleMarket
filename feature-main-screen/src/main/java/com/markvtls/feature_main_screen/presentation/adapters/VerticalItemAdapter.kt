@@ -1,12 +1,12 @@
 package com.markvtls.feature_main_screen.presentation.adapters
 
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
-import com.markvtls.feature_main_screen.domain.model.StockItem
-import com.markvtls.feature_main_screen.presentation.adapters.base.BaseDiffUtil
+import com.markvtls.core.ui.RecyclerListItem
+import com.markvtls.core.ui.BaseDiffUtil
 
 internal class VerticalItemAdapter(
     toItemDetails: () -> Unit
-): AsyncListDifferDelegationAdapter<StockItem>(BaseDiffUtil())  {
+): AsyncListDifferDelegationAdapter<RecyclerListItem>(BaseDiffUtil())  {
 
     init {
         delegatesManager

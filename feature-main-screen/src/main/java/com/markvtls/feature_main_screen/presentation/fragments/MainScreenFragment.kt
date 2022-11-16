@@ -4,9 +4,7 @@ package com.markvtls.feature_main_screen.presentation.fragments
 import android.app.Activity
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -16,20 +14,17 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
-import com.markvtls.feature_main_screen.R
+import com.markvtls.core.navigation.NavigationActions
 import com.markvtls.feature_main_screen.databinding.FragmentMainScreenBinding
 import com.markvtls.feature_main_screen.domain.model.BestSale
 import com.markvtls.feature_main_screen.domain.model.HotSale
 import com.markvtls.feature_main_screen.presentation.MainScreenViewModel
 import com.markvtls.feature_main_screen.presentation.adapters.MainScreenAdapter
-import com.markvtls.feature_main_screen.presentation.adapters.MainScreenDelegates
-import com.markvtls.feature_main_screen.presentation.adapters.base.StockHorizontalItem
-import com.markvtls.feature_main_screen.presentation.adapters.base.StockVerticalItem
+import com.markvtls.feature_main_screen.presentation.adapters.base.RecyclerListHorizontalItem
+import com.markvtls.feature_main_screen.presentation.adapters.base.RecyclerListVerticalItem
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
+
 
 
 @AndroidEntryPoint
@@ -40,9 +35,13 @@ internal class MainScreenFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: MainScreenViewModel by viewModels()
     private val adapter = MainScreenAdapter { toItemDetails() }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getMarketStock()
+        viewModel.getHot()
+        viewModel.getBest()
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,30 +57,12 @@ internal class MainScreenFragment : Fragment() {
         with(binding) {
             mark(categoryPhonesLayout)
 
-            categoryButtonsList.forEach { category ->
-                (category as LinearLayout).forEach {
-                    if (it is ImageButton) it.setOnClickListener {
-                        default(categoryButtonsList)
-                        mark(category)
-                    }
-                }
+            viewModel.cartItems?.asLiveData()?.observe(viewLifecycleOwner) {
+                if (it > 0) binding.bottomNavigation.getOrCreateBadge(com.markvtls.core.R.id.cartFragment).number = it
             }
-
-
             viewModel.stock?.asLiveData()?.observe(viewLifecycleOwner) {
-                loadHotSales(it.hotSale, it.bestSale)
-                viewModel.getHot()
-                viewModel.getBest()
-            }
-
-            viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-                viewModel.bestSales.asLiveData().observe(viewLifecycleOwner) { best ->
-                    viewLifecycleOwner.lifecycleScope.launch {
-                        viewModel.hotSales.collect { hot ->
-                            loadHotSales(hot, best)
-                        }
-                    }
-                }
+                loadMarketStock(it.hotSale, it.bestSale)
+                finishLoading()
             }
 
             filter.setOnClickListener {
@@ -95,25 +76,35 @@ internal class MainScreenFragment : Fragment() {
             searchField.setOnFocusChangeListener { view, hasFocus ->
                 if (!hasFocus) hideKeyboard(view)
             }
+
+            bottomNavigation.setOnItemSelectedListener {
+                navigate(it)
+            }
+
+            categoryButtonsList.forEach { category ->
+                (category as LinearLayout).forEach {
+                    if (it is ImageButton) it.setOnClickListener {
+                        default(categoryButtonsList)
+                        mark(category)
+                    }
+                }
+            }
+
         }
 
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
 
-    private fun loadHotSales(hotSales: List<HotSale>, bestSales: List<BestSale>) {
-
+    private fun loadMarketStock(hotSales: List<HotSale>, bestSales: List<BestSale>) {
         val recyclerView = binding.recyclerview
-
         recyclerView.adapter = adapter
-        adapter.apply {
-            items = listOf(StockHorizontalItem(hotSales), StockVerticalItem(bestSales))
-
-        }
-
+        adapter.apply { items = listOf(RecyclerListHorizontalItem(hotSales), RecyclerListVerticalItem(bestSales)) }
     }
 
 
@@ -142,10 +133,42 @@ internal class MainScreenFragment : Fragment() {
         inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
     }
 
-     private fun toItemDetails() {
-        findNavController().navigate(com.markvtls.core.R.id.action_global_detailsFragment)
+    private fun toItemDetails() {
+        NavigationActions.toDetailsScreen(findNavController())
     }
+
+    private fun toCart() {
+        NavigationActions.toCart(findNavController())
+    }
+
+
+    private fun navigate(destination: MenuItem): Boolean {
+        return when (destination.itemId) {
+            com.markvtls.core.R.id.cartFragment -> {
+                toCart()
+                true
+            }
+            com.markvtls.core.R.id.favoritesFragment -> {
+                true
+            }
+            com.markvtls.core.R.id.userFragment -> {
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun finishLoading() {
+        with(binding) {
+            loading.visibility = View.INVISIBLE
+            mainLayout.visibility = View.VISIBLE
+            navBar.visibility = View.VISIBLE
+        }
+    }
+
     companion object {
         val filterSheet = FilterBottomSheet()
     }
+
+
 }

@@ -2,36 +2,27 @@ package com.markvtls.feature_main_screen.presentation.adapters
 
 
 import android.graphics.Paint
-import android.opengl.Visibility
 import android.view.View
-import android.widget.ImageView
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
+import android.widget.RadioButton
 import androidx.recyclerview.widget.PagerSnapHelper
 import coil.load
 import coil.size.Scale
-import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
-import coil.transform.Transformation
-import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
-import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
-import com.markvtls.feature_main_screen.R
 import com.markvtls.feature_main_screen.databinding.BestSaleItemBinding
 import com.markvtls.feature_main_screen.databinding.HorizontalStockItemBinding
 import com.markvtls.feature_main_screen.databinding.HotSaleItemBinding
 import com.markvtls.feature_main_screen.databinding.VerticalStockItemBinding
 import com.markvtls.feature_main_screen.domain.model.BestSale
 import com.markvtls.feature_main_screen.domain.model.HotSale
-import com.markvtls.feature_main_screen.domain.model.StockItem
-import com.markvtls.feature_main_screen.presentation.adapters.base.StockHorizontalItem
-import com.markvtls.feature_main_screen.presentation.adapters.base.StockVerticalItem
+import com.markvtls.core.ui.RecyclerListItem
+import com.markvtls.feature_main_screen.presentation.adapters.base.RecyclerListHorizontalItem
+import com.markvtls.feature_main_screen.presentation.adapters.base.RecyclerListVerticalItem
 
 
 internal object MainScreenDelegates {
 
-    val horizontalStockItemDelegate = adapterDelegateViewBinding<StockHorizontalItem, StockItem, HorizontalStockItemBinding>(
+    val horizontalRecyclerListItemDelegate = adapterDelegateViewBinding<RecyclerListHorizontalItem, RecyclerListItem, HorizontalStockItemBinding>(
         {inflater, container -> HorizontalStockItemBinding.inflate(inflater, container, false).apply {
             val snapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(horizontalSalesList)
@@ -48,10 +39,9 @@ internal object MainScreenDelegates {
 
     fun verticalStockItemDelegate(
         toItemDetails: () -> Unit
-    ) = adapterDelegateViewBinding<StockVerticalItem, StockItem, VerticalStockItemBinding>(
-        {inflater, container -> VerticalStockItemBinding.inflate(inflater, container, false).apply {
-        } } ) {
-
+    ) = adapterDelegateViewBinding<RecyclerListVerticalItem, RecyclerListItem, VerticalStockItemBinding>(
+        {inflater, container -> VerticalStockItemBinding.inflate(inflater, container, false) } )
+    {
         val adapter = VerticalItemAdapter(toItemDetails = toItemDetails)
         binding.verticalSalesList.adapter = adapter
         bind {
@@ -63,7 +53,7 @@ internal object MainScreenDelegates {
         }
     }
 
-     val hotSaleDelegate = adapterDelegateViewBinding<HotSale, StockItem, HotSaleItemBinding>(
+     val hotSaleDelegate = adapterDelegateViewBinding<HotSale, RecyclerListItem, HotSaleItemBinding>(
         {inflate, container -> HotSaleItemBinding.inflate(inflate,container, false)}
     ) {
         bind {
@@ -79,7 +69,7 @@ internal object MainScreenDelegates {
 
     fun bestSaleDelegate(
         toItemDetails: () -> Unit
-    ) = adapterDelegateViewBinding<BestSale, StockItem, BestSaleItemBinding>(
+    ) = adapterDelegateViewBinding<BestSale, RecyclerListItem, BestSaleItemBinding>(
         {inflate, container -> BestSaleItemBinding.inflate(inflate,container, false)}
     ) {
         bind {
@@ -95,12 +85,12 @@ internal object MainScreenDelegates {
                         crossfade(true)
                     }
                 }
+
                 favoritesButton.apply {
-                    val image = if (item.isFavorites) com.markvtls.core.R.drawable.ic_favorite_filled else com.markvtls.core.R.drawable.ic_favorite
-                    setImageResource(image)
-                    setOnClickListener {
-                        val actualImage = if (item.isFavorites) com.markvtls.core.R.drawable.ic_favorite else com.markvtls.core.R.drawable.ic_favorite_filled
-                        setImageResource(actualImage)
+                    if (item.isFavorites) {
+                        setImageResource(com.markvtls.core.R.drawable.ic_favorite_filled)
+                    } else {
+                        favoritesButton.setImageResource(com.markvtls.core.R.drawable.ic_favorite)
                     }
                 }
 

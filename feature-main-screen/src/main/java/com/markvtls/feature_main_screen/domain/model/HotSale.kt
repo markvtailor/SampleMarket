@@ -1,5 +1,6 @@
 package com.markvtls.feature_main_screen.domain.model
 
+import com.markvtls.core.ui.RecyclerListItem
 import com.squareup.moshi.Json
 
 internal data class HotSale (
@@ -11,6 +12,6 @@ internal data class HotSale (
     val picture: String,
     @Json(name = "is_buy")
     val isBuy: Boolean
-): StockItem {
+): RecyclerListItem {
     override val itemId: Int = id
 }

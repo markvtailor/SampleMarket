@@ -26,4 +26,6 @@ internal class UseCaseModule {
     @Provides
     fun provideSearchSalesUseCase(repository: MarketStockRepository) = SearchSalesUseCase(repository)
 
+    @Provides
+    fun provideGetCartItemsInfoUseCase(repository: MarketStockRepository) = GetCartItemsInfoUseCase(repository)
 }

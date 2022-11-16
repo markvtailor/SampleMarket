@@ -22,18 +22,24 @@ internal class MainScreenViewModel @Inject constructor(
     private val getBestSales: GetBestSalesUseCase,
     private val getHotSales: GetHotSalesUseCase,
     private val filterBestSales: FilterSalesUseCase,
-    private val searchBestSales: SearchSalesUseCase
+    private val searchBestSales: SearchSalesUseCase,
+    private val getCartItemsInfo: GetCartItemsInfoUseCase
 ) : ViewModel() {
 
     private var _stock: Flow<StockResponse>? = null
     private val _hotSales = MutableStateFlow<List<HotSale>>(emptyList())
     private val _bestSales = MutableStateFlow<List<BestSale>>(emptyList())
+    private var _cartItems: Flow<Int>? = null
+
+
     val hotSales get() = _hotSales
     val bestSales get() = _bestSales
     val stock get() = _stock
+    val cartItems get() = _cartItems
 
 
     init {
+        getCartItemsQuantity()
         getMarketStock()
     }
 
@@ -110,5 +116,11 @@ internal class MainScreenViewModel @Inject constructor(
             }
         }
 
+    }
+
+    fun getCartItemsQuantity() {
+        viewModelScope.launch {
+            _cartItems = getCartItemsInfo()
+        }
     }
 }

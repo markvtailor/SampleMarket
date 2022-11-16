@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetDetailsUseCase @Inject constructor(
+internal class GetDetailsUseCase @Inject constructor(
     private val repository: DetailsRepository
 ) {
     suspend operator fun invoke(): Flow<StockItemDetails> = flow {

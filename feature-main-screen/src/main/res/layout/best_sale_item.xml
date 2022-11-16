@@ -22,28 +22,31 @@
                 android:id="@+id/phone_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerInside"
                 android:layout_alignParentTop="true"
-                />
+                android:scaleType="centerInside" />
 
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/favorites_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:backgroundTint="@color/white"
-                app:rippleColor="@android:color/transparent"
-                app:backgroundTint="@color/white"
-                android:foregroundGravity="center_vertical"
-                app:srcCompat="@drawable/ic_favorite"
-                app:fabCustomSize="40dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-                app:tint="@null"
-                style="?attr/floatingActionButtonSmallStyle"
-                app:shapeAppearance="@style/Widget.Material3.Button.Icon"/>
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/favorites_button"
+                    style="?attr/floatingActionButtonSmallStyle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:elevation="0dp"
+                    android:backgroundTint="@color/white"
+                    android:foregroundGravity="center_vertical"
+                    app:backgroundTint="@color/white"
+                    app:fabCustomSize="40dp"
+                    app:rippleColor="@android:color/transparent"
+                    app:shapeAppearance="@style/Widget.Material3.Button.Icon"
+                    app:srcCompat="@drawable/ic_favorite"
+                    app:tint="@null" />
+
 
 
             <LinearLayout

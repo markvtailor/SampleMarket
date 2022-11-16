@@ -2,8 +2,10 @@ package com.markvtls.phonemarket
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.markvtls.core.navigation.NavigationActions
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,6 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen()
+
         setContentView(R.layout.activity_main)
 
 
@@ -23,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment?.navController
 
-        navController?.navigate(com.markvtls.feature_main_screen.R.id.mainScreenFragment)
+        navController?.let { NavigationActions.toMainScreen(it) }
 
 
     }

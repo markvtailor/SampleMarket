@@ -1,16 +1,16 @@
 package com.markvtls.feature_main_screen.presentation.adapters
 
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
-import com.markvtls.feature_main_screen.domain.model.StockItem
-import com.markvtls.feature_main_screen.presentation.adapters.base.BaseDiffUtil
+import com.markvtls.core.ui.RecyclerListItem
+import com.markvtls.core.ui.BaseDiffUtil
 
-internal class MainScreenAdapter(toItemDetails: () -> Unit): AsyncListDifferDelegationAdapter<StockItem>(BaseDiffUtil()) {
+internal class MainScreenAdapter(toItemDetails: () -> Unit): AsyncListDifferDelegationAdapter<RecyclerListItem>(
+    BaseDiffUtil()
+) {
 
     init {
         delegatesManager
-            .addDelegate(MainScreenDelegates.horizontalStockItemDelegate)
+            .addDelegate(MainScreenDelegates.horizontalRecyclerListItemDelegate)
             .addDelegate(MainScreenDelegates.verticalStockItemDelegate(toItemDetails = toItemDetails))
 
     }

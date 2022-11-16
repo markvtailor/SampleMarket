@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class DetailsViewModel @Inject constructor(
+internal class DetailsViewModel @Inject constructor(
     private val getItemDetails: GetDetailsUseCase
 ) : ViewModel() {
 

@@ -11,7 +11,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-class UseCaseModule {
+internal class UseCaseModule {
 
     @Provides
     fun provideGetDetailsUseCase(repository: DetailsRepository) = GetDetailsUseCase(repository)

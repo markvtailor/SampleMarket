@@ -2,5 +2,6 @@
 <resources>
     <string name="price">$%s</string>
     <string name="capacity">%s GB</string>
-    <string name="add_to_cart">"Add to Cart                $%s"</string>
+    <string name="add_to_cart">"Add to Cart               %s"</string>
+    <string name="total_price_us">$%s us</string>
 </resources>
