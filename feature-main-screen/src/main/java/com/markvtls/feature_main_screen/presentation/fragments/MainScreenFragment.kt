@@ -40,7 +40,8 @@ internal class MainScreenFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getMarketStock()
-
+        viewModel.getBest()
+        viewModel.getHot()
 
     }
 

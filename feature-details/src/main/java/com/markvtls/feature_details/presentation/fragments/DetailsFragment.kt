@@ -73,7 +73,7 @@ class DetailsFragment : Fragment() {
         }
 
         viewModel.details?.asLiveData()?.observe(viewLifecycleOwner) {
-            println(it)
+            binding.title.text = it.title
             loadImages(it.images)
             binding.rating.rating = it.rating.toFloat()
         }

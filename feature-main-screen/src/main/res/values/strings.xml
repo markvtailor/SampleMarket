@@ -4,7 +4,7 @@
     <string name="filter_options">Filter options</string>
     <string name="done">Done</string>
     <string name="brand">Brand</string>
-    <string name="price">Price</string>
+    <string name="price_label">Price</string>
     <string name="size">Size</string>
     <string name="default_city">Default City</string>
     <string name="filter_icon">filter icon</string>
