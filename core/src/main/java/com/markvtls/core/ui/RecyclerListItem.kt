@@ -1,5 +1,6 @@
 package com.markvtls.core.ui
 
- interface RecyclerListItem {
+/**Interface for RecyclerView items.*/
+interface RecyclerListItem {
     val itemId: Int
 }

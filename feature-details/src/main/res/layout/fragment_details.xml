@@ -39,6 +39,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:contentDescription="@string/back_button"
                 android:id="@+id/back_button"
                 android:layout_marginStart="16dp"
                 android:layout_width="wrap_content"
@@ -59,7 +60,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="Product Details"
+                android:text="@string/product_details"
                 android:textAllCaps="false"
                 android:textColor="@color/dark_blue"
                 android:fontFamily="@font/mark_pro"
@@ -67,6 +68,7 @@
                 android:textSize="20sp"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:contentDescription="@string/to_cart_button"
                 android:id="@+id/to_cart_button"
                 android:layout_marginEnd="16dp"
                 android:layout_width="wrap_content"
@@ -133,7 +135,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="Galaxy Note 20 Ultra"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="@color/dark_blue"
@@ -144,6 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:contentDescription="@string/favorites_button"
                         android:id="@+id/favorites_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -188,19 +190,16 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Shop"
                         />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Details"
                         />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Features"
                         />
 
 

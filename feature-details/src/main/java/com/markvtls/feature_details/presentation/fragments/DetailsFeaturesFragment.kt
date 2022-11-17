@@ -1,14 +1,13 @@
 package com.markvtls.feature_details.presentation.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.markvtls.feature_details.R
+import androidx.fragment.app.Fragment
 import com.markvtls.feature_details.databinding.FragmentDetailsFeaturesBinding
 
-
+/**Details features UI.*/
 internal class DetailsFeaturesFragment : Fragment() {
 
     private var _binding: FragmentDetailsFeaturesBinding? = null

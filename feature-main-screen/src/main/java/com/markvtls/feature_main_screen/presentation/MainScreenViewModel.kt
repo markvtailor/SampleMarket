@@ -1,7 +1,6 @@
 package com.markvtls.feature_main_screen.presentation
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.markvtls.feature_main_screen.domain.model.BestSale
 import com.markvtls.feature_main_screen.domain.model.FilterOption
@@ -12,10 +11,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**ViewModel for Main Screen Fragment.*/
 @HiltViewModel
 internal class MainScreenViewModel @Inject constructor(
     private val getStock: GetStockInfoUseCase,
@@ -43,41 +42,47 @@ internal class MainScreenViewModel @Inject constructor(
         getMarketStock()
     }
 
-     fun getMarketStock() {
+    fun getMarketStock() {
         viewModelScope.launch(Dispatchers.IO) {
-            _stock = getStock()
+            try {
+                _stock = getStock()
+            } catch (e: Exception) {
+                println(e)
+            }
+
         }
     }
 
     fun getHot() {
-        viewModelScope.launch(Dispatchers.IO) {
-                getHotSales().collect {
-                    _hotSales.emit(it)
-                }
+        viewModelScope.launch {
+
+            getHotSales().collect {
+                _hotSales.emit(it)
+            }
         }
     }
 
     fun getBest() {
-        viewModelScope.launch(Dispatchers.IO) {
-                getBestSales().collect {
-                    _bestSales.emit(it)
-                }
+        viewModelScope.launch {
+            getBestSales().collect {
+                _bestSales.emit(it)
+            }
         }
     }
 
     fun filterBest(filterOption: FilterOption) {
-        viewModelScope.launch(Dispatchers.IO) {
-                filterBestSales(filterOption).collect {
-                    _bestSales.emit(it)
-                }
+        viewModelScope.launch {
+            filterBestSales(filterOption).collect {
+                _bestSales.emit(it)
             }
+        }
     }
 
     fun composeFilter(brand: String, price: String, size: String): FilterOption {
         //sizes are not implemented
         var maxPrice = 0L
         var minPrice = 0L
-        when(price) {
+        when (price) {
             "$0 - $300" -> {
                 minPrice = 0
                 maxPrice = 300
@@ -110,7 +115,7 @@ internal class MainScreenViewModel @Inject constructor(
     }
 
     fun searchSales(searchRequest: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             searchBestSales(searchRequest).collect {
                 _bestSales.emit(it)
             }
@@ -118,8 +123,8 @@ internal class MainScreenViewModel @Inject constructor(
 
     }
 
-    fun getCartItemsQuantity() {
-        viewModelScope.launch {
+    private fun getCartItemsQuantity() {
+        viewModelScope.launch(Dispatchers.IO) {
             _cartItems = getCartItemsInfo()
         }
     }

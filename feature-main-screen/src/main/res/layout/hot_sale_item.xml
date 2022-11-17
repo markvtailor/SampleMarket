@@ -13,7 +13,7 @@
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         app:shapeAppearanceOverlay="@style/roundedImageView"
-         />
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/banner_new"
@@ -22,7 +22,7 @@
         android:layout_marginStart="24dp"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:text="New"
+        android:text="@string/new_badge"
         android:visibility="gone"
         android:maxLines="1"
         android:textSize="11sp"
@@ -33,15 +33,15 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:clickable="false"
-         />
+        />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/banner_buy"
         android:layout_margin="24dp"
-       android:layout_alignLeft="@id/banner"
+        android:layout_alignLeft="@id/banner"
         android:layout_alignBottom="@id/banner"
         android:layout_width="128dp"
         android:layout_height="40dp"
-        android:text="Buy now!"
+        android:text="@string/buy_now"
         android:fontFamily="@font/mark_pro"
         android:backgroundTint="@color/white"
         android:textAllCaps="false"

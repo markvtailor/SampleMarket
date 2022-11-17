@@ -44,8 +44,6 @@ dependencies {
 
     implementation project(":core")
 
-    
-
 
     //Coil
     implementation 'io.coil-kt:coil:2.2.2'

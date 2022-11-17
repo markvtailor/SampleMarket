@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+
+/**Use this for getting cart info from repository.*/
 internal class GetCartInfoUseCase @Inject constructor(
     private val repository: CartRepository
 ) {

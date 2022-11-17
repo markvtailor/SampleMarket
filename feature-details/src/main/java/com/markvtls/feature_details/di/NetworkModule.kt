@@ -2,7 +2,6 @@ package com.markvtls.feature_details.di
 
 import com.markvtls.feature_details.data.source.DetailsApiService
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

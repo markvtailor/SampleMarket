@@ -15,6 +15,7 @@ internal class DataModule {
 
     @Provides
     @Singleton
-    fun provideMarketStockRepository(marketApi: MarketApiService): MarketStockRepository = MarketStockRepositoryImpl(marketApi)
+    fun provideMarketStockRepository(marketApi: MarketApiService): MarketStockRepository =
+        MarketStockRepositoryImpl(marketApi)
 
 }

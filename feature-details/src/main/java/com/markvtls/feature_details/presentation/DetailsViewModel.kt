@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+/**ViewModel for Details Fragment.*/
 @HiltViewModel
 internal class DetailsViewModel @Inject constructor(
     private val getItemDetails: GetDetailsUseCase

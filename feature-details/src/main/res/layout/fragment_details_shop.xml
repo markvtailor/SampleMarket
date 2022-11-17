@@ -23,6 +23,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:contentDescription="@string/cpu_icon"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_cpu"
@@ -45,6 +46,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:contentDescription="@string/camera_icon"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_camera"
@@ -67,6 +69,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:contentDescription="@string/ram_icon"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_ram"
@@ -90,6 +93,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:contentDescription="@string/sd_card_icon"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_sd_card"
@@ -116,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Select color and capacity"
+        android:text="@string/select_color_and_capacity"
         android:textColor="@color/dark_blue"
         android:fontFamily="@font/mark_pro"
         android:textStyle="bold"
@@ -131,127 +135,129 @@
 
 
 
-            <RadioGroup
-                android:id="@+id/color_options"
+        <RadioGroup
+            android:id="@+id/color_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:contentDescription="@string/color_button"
+                android:id="@+id/color_one_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                app:rippleColor="@android:color/transparent"
+                app:srcCompat="@drawable/ic_empty_space"
+                app:fabCustomSize="40dp"
+                app:elevation="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:tint="@null"
+                style="?attr/floatingActionButtonSmallStyle"
+                app:shapeAppearance="@style/Widget.Material3.Button.Icon"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/color_one"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                />
 
-
-
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/color_one_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:rippleColor="@android:color/transparent"
-                            app:srcCompat="@drawable/ic_empty_space"
-                            app:fabCustomSize="40dp"
-                            app:elevation="0dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            app:tint="@null"
-                            style="?attr/floatingActionButtonSmallStyle"
-                            app:shapeAppearance="@style/Widget.Material3.Button.Icon"
-                            />
-                        <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/color_one"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:background="@android:color/transparent"
-                            android:button="@null"
-                            />
-
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/color_two_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:rippleColor="@android:color/transparent"
-                            android:foregroundGravity="center_vertical"
-                            app:srcCompat="@drawable/ic_empty_space"
-                            app:fabCustomSize="40dp"
-                            app:elevation="0dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            app:tint="@null"
-                            style="?attr/floatingActionButtonSmallStyle"
-                            app:shapeAppearance="@style/Widget.Material3.Button.Icon"
-                            />
-                        <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/color_two"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:background="@android:color/transparent"
-                            android:button="@null"
-                            />
-
-
-
-
-
-
-
-            </RadioGroup>
-
-
-
-
-
-
-            <RadioGroup
-                android:id="@+id/capacity_options"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:contentDescription="@string/color_button"
+                android:id="@+id/color_two_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                app:rippleColor="@android:color/transparent"
+                android:foregroundGravity="center_vertical"
+                app:srcCompat="@drawable/ic_empty_space"
+                app:fabCustomSize="40dp"
+                app:elevation="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:tint="@null"
+                style="?attr/floatingActionButtonSmallStyle"
+                app:shapeAppearance="@style/Widget.Material3.Button.Icon"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/color_two"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                />
 
 
 
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/capacity_option_one_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        app:rippleColor="@android:color/transparent"
-                        android:backgroundTint="@android:color/transparent"
-                        android:textColor="@color/dark_gray"
-                        app:strokeWidth="0dp"
-                        app:cornerRadius="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        />
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/capacity_one"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:background="@android:color/transparent"
-                        android:button="@null"
-                        />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/capacity_option_two_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        app:rippleColor="@android:color/transparent"
-                        android:backgroundTint="@android:color/transparent"
-                        android:textColor="@color/dark_gray"
-                        app:strokeWidth="0dp"
-                        app:cornerRadius="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="8dp"
-                        />
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/capacity_two"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:background="@android:color/transparent"
-                        android:button="@null"
-                        />
+
+
+        </RadioGroup>
 
 
 
 
-            </RadioGroup>
+
+
+        <RadioGroup
+            android:id="@+id/capacity_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/capacity_option_one_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                app:rippleColor="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="@color/dark_gray"
+                app:strokeWidth="0dp"
+                app:cornerRadius="12dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/capacity_one"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/capacity_option_two_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                app:rippleColor="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="@color/dark_gray"
+                app:strokeWidth="0dp"
+                app:cornerRadius="12dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/capacity_two"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                />
+
+
+
+
+        </RadioGroup>
 
 
     </LinearLayout>

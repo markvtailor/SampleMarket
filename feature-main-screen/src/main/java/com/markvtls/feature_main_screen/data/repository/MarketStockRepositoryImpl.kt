@@ -8,9 +8,11 @@ import com.markvtls.feature_main_screen.domain.model.StockResponse
 import com.markvtls.feature_main_screen.domain.repository.MarketStockRepository
 import javax.inject.Inject
 
+
+/**Implementation of MarketStockRepository.*/
 internal class MarketStockRepositoryImpl @Inject constructor(
     private val marketApi: MarketApiService
-): MarketStockRepository {
+) : MarketStockRepository {
 
     override suspend fun getStockInfo(): StockResponse {
         return marketApi.getStock()

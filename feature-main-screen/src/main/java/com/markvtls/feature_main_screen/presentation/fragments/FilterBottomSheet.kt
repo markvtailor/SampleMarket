@@ -11,14 +11,15 @@ import com.markvtls.feature_main_screen.R
 import com.markvtls.feature_main_screen.databinding.BottomSheetContentBinding
 import com.markvtls.feature_main_screen.presentation.MainScreenViewModel
 
-
-internal class FilterBottomSheet: BottomSheetDialogFragment() {
+/**Bottom sheet for filter UI.*/
+internal class FilterBottomSheet : BottomSheetDialogFragment() {
 
     private var _binding: BottomSheetContentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainScreenViewModel by viewModels(
-        ownerProducer = {requireParentFragment()}
+        ownerProducer = { requireParentFragment() }
     )
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -3,7 +3,8 @@ package com.markvtls.feature_main_screen.domain.model
 import com.markvtls.core.ui.RecyclerListItem
 import com.squareup.moshi.Json
 
-internal data class BestSale (
+/**Data class for "Best sellers" list' items.*/
+internal data class BestSale(
     val id: Int,
     @Json(name = "is_favorites")
     val isFavorites: Boolean,
@@ -13,6 +14,6 @@ internal data class BestSale (
     @Json(name = "discount_price")
     val discountPrice: Int,
     val picture: String
-): RecyclerListItem {
+) : RecyclerListItem {
     override val itemId: Int = id
 }

@@ -50,7 +50,8 @@
                 app:tint="@null"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
                 style="?attr/floatingActionButtonSmallStyle"
-                android:backgroundTint="@color/dark_blue"/>
+                android:backgroundTint="@color/dark_blue"
+                android:contentDescription="@string/back_button" />
 
             <TextView
                 android:layout_width="0dp"
@@ -58,7 +59,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:text="Add address"
+                android:text="@string/add_address"
                 android:textAllCaps="false"
                 android:textColor="@color/dark_blue"
                 android:fontFamily="@font/mark_pro"
@@ -75,7 +76,8 @@
                 app:tint="@null"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
                 style="?attr/floatingActionButtonSmallStyle"
-                android:backgroundTint="@color/orange"/>
+                android:backgroundTint="@color/orange"
+                android:contentDescription="@string/add_location_button"/>
 
         </LinearLayout>
 
@@ -87,7 +89,7 @@
             android:layout_marginStart="16dp"
             android:paddingTop="32dp"
             android:paddingBottom="32dp"
-            android:text="My Cart"
+            android:text="@string/my_cart"
             android:textAllCaps="false"
             android:textColor="@color/dark_blue"
             android:fontFamily="@font/mark_pro_bold"
@@ -154,7 +156,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/mark_pro"
-                        android:text="Total"
+                        android:text="@string/total"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
 
@@ -168,7 +170,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/mark_pro"
-                        android:text="Delivery"
+                        android:text="@string/delivery"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
 
@@ -200,7 +202,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:cornerRadius="8dp"
                     android:backgroundTint="@color/orange"
-                    android:text="Checkout"
+                    android:text="@string/checkout"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18sp"

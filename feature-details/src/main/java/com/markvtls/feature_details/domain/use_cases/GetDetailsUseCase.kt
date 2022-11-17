@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+/**Use this to get item details.*/
 internal class GetDetailsUseCase @Inject constructor(
     private val repository: DetailsRepository
 ) {

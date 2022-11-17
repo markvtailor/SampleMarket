@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+/**Use this to get stock info.*/
 internal class GetStockInfoUseCase @Inject constructor(
     private val repository: MarketStockRepository
 ) {

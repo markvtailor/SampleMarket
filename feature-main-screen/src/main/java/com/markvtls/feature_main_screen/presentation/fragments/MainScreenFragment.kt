@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.forEach
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -25,8 +26,7 @@ import com.markvtls.feature_main_screen.presentation.adapters.base.RecyclerListH
 import com.markvtls.feature_main_screen.presentation.adapters.base.RecyclerListVerticalItem
 import dagger.hilt.android.AndroidEntryPoint
 
-
-
+/**Main Screen UI.*/
 @AndroidEntryPoint
 internal class MainScreenFragment : Fragment() {
 
@@ -40,9 +40,10 @@ internal class MainScreenFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getMarketStock()
-        viewModel.getHot()
-        viewModel.getBest()
+
+
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,13 +58,27 @@ internal class MainScreenFragment : Fragment() {
         with(binding) {
             mark(categoryPhonesLayout)
 
-            viewModel.cartItems?.asLiveData()?.observe(viewLifecycleOwner) {
-                if (it > 0) binding.bottomNavigation.getOrCreateBadge(com.markvtls.core.R.id.cartFragment).number = it
+
+            viewModel.apply {
+
+                cartItems?.asLiveData()?.observe(viewLifecycleOwner) {
+                    if (it > 0) binding.bottomNavigation.getOrCreateBadge(com.markvtls.core.R.id.cartFragment).number =
+                        it
+                }
+
+                stock?.asLiveData()?.observe(viewLifecycleOwner) {
+                    loadMarketStock(it.hotSale, it.bestSale)
+                    finishLoading()
+                }
+
+                bestSales.asLiveData().observe(viewLifecycleOwner) { bestSale ->
+                    viewModel.getHot()
+                    viewModel.hotSales.asLiveData().observe(viewLifecycleOwner) { hotSale ->
+                        loadMarketStock(hotSale, bestSale)
+                    }
+                }
             }
-            viewModel.stock?.asLiveData()?.observe(viewLifecycleOwner) {
-                loadMarketStock(it.hotSale, it.bestSale)
-                finishLoading()
-            }
+
 
             filter.setOnClickListener {
                 filterSheet.show(childFragmentManager, FilterBottomSheet.TAG)
@@ -95,7 +110,6 @@ internal class MainScreenFragment : Fragment() {
     }
 
 
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
@@ -104,7 +118,10 @@ internal class MainScreenFragment : Fragment() {
     private fun loadMarketStock(hotSales: List<HotSale>, bestSales: List<BestSale>) {
         val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
-        adapter.apply { items = listOf(RecyclerListHorizontalItem(hotSales), RecyclerListVerticalItem(bestSales)) }
+        adapter.apply {
+            items =
+                listOf(RecyclerListHorizontalItem(hotSales), RecyclerListVerticalItem(bestSales))
+        }
     }
 
 
@@ -112,25 +129,29 @@ internal class MainScreenFragment : Fragment() {
         categoryList.forEach { category ->
             (category as LinearLayout).forEach {
                 when (it) {
-                    is ImageButton -> it.backgroundTintList = ColorStateList.valueOf(resources.getColor(com.markvtls.core.R.color.white))
-                    is TextView -> it.setTextColor(resources.getColor(com.markvtls.core.R.color.dark_blue))
+                    is ImageButton -> it.backgroundTintList =
+                        ColorStateList.valueOf(ContextCompat.getColor(requireContext(),com.markvtls.core.R.color.white))
+                    is TextView -> it.setTextColor(ContextCompat.getColor(requireContext(),com.markvtls.core.R.color.dark_blue))
                 }
             }
         }
     }
 
+    /**Choosing category.*/
     private fun mark(category: LinearLayout) {
         category.forEach {
             when (it) {
-                is ImageButton -> it.backgroundTintList = ColorStateList.valueOf(resources.getColor(com.markvtls.core.R.color.orange))
-                is TextView -> it.setTextColor(resources.getColor(com.markvtls.core.R.color.orange))
+                is ImageButton -> it.backgroundTintList =
+                    ColorStateList.valueOf(ContextCompat.getColor(requireContext(),com.markvtls.core.R.color.orange))
+                is TextView -> it.setTextColor(ContextCompat.getColor(requireContext(),com.markvtls.core.R.color.orange))
             }
         }
     }
 
     private fun hideKeyboard(view: View) {
-        val inputMethodManager = requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
+        val inputMethodManager =
+            requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun toItemDetails() {
@@ -142,6 +163,7 @@ internal class MainScreenFragment : Fragment() {
     }
 
 
+    /**Bottom Navigation bar functionality.*/
     private fun navigate(destination: MenuItem): Boolean {
         return when (destination.itemId) {
             com.markvtls.core.R.id.cartFragment -> {
@@ -158,6 +180,7 @@ internal class MainScreenFragment : Fragment() {
         }
     }
 
+    /**Loading animation.*/
     private fun finishLoading() {
         with(binding) {
             loading.visibility = View.INVISIBLE

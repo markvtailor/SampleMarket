@@ -4,6 +4,7 @@ import com.markvtls.feature_main_screen.domain.model.CartInfo
 import com.markvtls.feature_main_screen.domain.model.StockResponse
 import retrofit2.http.GET
 
+/**Retrofit client for Market API.*/
 internal interface MarketApiService {
 
     @GET("654bd15e-b121-49ba-a588-960956b15175")

@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+/**Use this to search items by name.*/
 internal class SearchSalesUseCase @Inject constructor(
     private val repository: MarketStockRepository
 ) {

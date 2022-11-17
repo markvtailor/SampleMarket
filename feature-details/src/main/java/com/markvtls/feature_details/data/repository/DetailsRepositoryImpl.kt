@@ -5,9 +5,11 @@ import com.markvtls.feature_details.domain.model.StockItemDetails
 import com.markvtls.feature_details.domain.repository.DetailsRepository
 import javax.inject.Inject
 
+
+/**Implementation of DetailsRepository.*/
 internal class DetailsRepositoryImpl @Inject constructor(
     private val detailsApi: DetailsApiService
-): DetailsRepository {
+) : DetailsRepository {
 
     override suspend fun getDetails(): StockItemDetails {
         return detailsApi.getDetails()

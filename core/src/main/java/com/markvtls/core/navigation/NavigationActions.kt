@@ -2,7 +2,7 @@ package com.markvtls.core.navigation
 
 import androidx.navigation.NavController
 
-
+/**Cross-module navigation.*/
 object NavigationActions {
 
     fun toMainScreen(navController: NavController) {

@@ -45,7 +45,7 @@
                 android:id="@+id/city_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Default City"
+                android:text="@string/default_city"
                 android:textStyle="bold"
                 android:textColor="@color/dark_blue"
                 android:fontFamily="@font/mark_pro"
@@ -53,6 +53,7 @@
                 app:drawableStartCompat="@drawable/ic_location" />
 
             <ImageView
+                android:contentDescription="@string/filter_icon"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/filter"
                 android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Category"
+                android:text="@string/select_category"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/dark_blue"
@@ -86,7 +87,7 @@
                 android:id="@+id/view_all_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="view all"
+                android:text="@string/view_all"
                 android:textColor="@color/orange"
                 android:textSize="14sp"
                 android:fontFamily="@font/mark_pro"
@@ -115,6 +116,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:contentDescription="@string/category_button"
                         android:id="@+id/category_phones"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
@@ -128,7 +130,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Phones"
+                        android:text="@string/phones"
                         android:textSize="12sp"
                         android:textColor="@color/dark_blue"
                         android:textStyle="bold"
@@ -146,6 +148,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:contentDescription="@string/category_button"
                         android:id="@+id/category_computer"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
@@ -159,7 +162,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Computer"
+                        android:text="@string/computer"
                         android:textSize="12sp"
                         android:textColor="@color/dark_blue"
                         android:textStyle="bold"
@@ -178,6 +181,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:contentDescription="@string/category_button"
                         android:id="@+id/category_health"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
@@ -192,7 +196,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Health"
+                        android:text="@string/health"
                         android:textSize="12sp"
                         android:textColor="@color/dark_blue"
                         android:textStyle="bold"
@@ -211,6 +215,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:contentDescription="@string/category_button"
                         android:id="@+id/category_books"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
@@ -224,7 +229,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Books"
+                        android:text="@string/books"
                         android:textSize="12sp"
                         android:textColor="@color/dark_blue"
                         android:textStyle="bold"
@@ -242,6 +247,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:contentDescription="@string/category_button"
                         android:id="@+id/category_other"
                         android:layout_width="wrap_content"
                         android:layout_height="72dp"
@@ -255,7 +261,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Other"
+                        android:text="@string/other"
                         android:textSize="12sp"
                         android:textColor="@color/dark_blue"
                         android:textStyle="bold"
@@ -302,7 +308,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/search_field"
-                    android:hint="Search"
+                    android:hint="@string/search"
                     android:maxLines="1"
                     android:maxLength="24"
                     android:textSize="12sp"
@@ -311,7 +317,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:contentDescription="@string/qr_code"
                 android:id="@+id/qr_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -364,6 +372,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:contentDescription="@string/point"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="4dp"
                 android:layout_width="wrap_content"
@@ -375,7 +384,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/dark_blue"
                 android:textSize="14sp"
-                android:text="Explorer"
+                android:text="@string/explorer"
                 android:textColor="@color/white"
                 android:fontFamily="@font/mark_pro_bold"
                 android:gravity="center_vertical" />

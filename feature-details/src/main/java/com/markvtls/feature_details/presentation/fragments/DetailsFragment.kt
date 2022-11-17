@@ -1,10 +1,11 @@
 package com.markvtls.feature_details.presentation.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
@@ -20,10 +21,9 @@ import org.imaginativeworld.whynotimagecarousel.listener.CarouselListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import org.imaginativeworld.whynotimagecarousel.utils.setImage
 
-
+/**Main details UI.*/
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
-
 
 
     private var _binding: FragmentDetailsBinding? = null
@@ -35,8 +35,18 @@ class DetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    NavigationActions.toMainScreen(findNavController())
+                }
+            })
+
         viewModel.getDetails()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,20 +57,8 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tabsAdapter = TabsAdapter(this)
-        val viewPager = binding.pager
-        viewPager.adapter = tabsAdapter
 
-        val tabLayout = binding.tabs
-        TabLayoutMediator(tabLayout,viewPager) {tab, position ->
-            tab.text = tabsTitles[position]
-        }.attach()
-        viewModel.details?.asLiveData()?.observe(viewLifecycleOwner) {
-            println(it)
-            loadImages(it.images)
-            binding.rating.rating = it.rating.toFloat()
-        }
-
+        loadTabs()
 
         with(binding) {
 
@@ -74,9 +72,13 @@ class DetailsFragment : Fragment() {
 
         }
 
-
-
+        viewModel.details?.asLiveData()?.observe(viewLifecycleOwner) {
+            println(it)
+            loadImages(it.images)
+            binding.rating.rating = it.rating.toFloat()
+        }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
@@ -84,11 +86,20 @@ class DetailsFragment : Fragment() {
     }
 
 
+    private fun loadTabs() {
+        val tabsAdapter = TabsAdapter(this)
+        val viewPager = binding.pager
+        viewPager.adapter = tabsAdapter
+
+        val tabLayout = binding.tabs
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabsTitles[position]
+        }.attach()
+    }
+
     private fun loadImages(imagesURL: List<String>) {
 
-
         val imageCarousel = binding.itemImages
-
         imageCarousel.carouselListener = object : CarouselListener {
 
             override fun onCreateViewHolder(
@@ -104,20 +115,26 @@ class DetailsFragment : Fragment() {
                 position: Int
             ) {
                 val currentBinding = binding as ImageCardBinding
-                currentBinding.imageView.apply { setImage(item, org.imaginativeworld.whynotimagecarousel.R.drawable.carousel_default_placeholder) }
+                currentBinding.imageView.apply {
+                    setImage(
+                        item,
+                        org.imaginativeworld.whynotimagecarousel.R.drawable.carousel_default_placeholder
+                    )
                 }
+            }
         }
 
-        val list = mutableListOf<CarouselItem>()
 
+        val list = mutableListOf<CarouselItem>()
         imagesURL.forEach { url ->
             list.add(CarouselItem(imageUrl = url))
         }
-
         imageCarousel.setData(list)
         finishLoading()
     }
 
+
+    /**Loading animation.*/
     private fun finishLoading() {
         binding.loading.visibility = View.INVISIBLE
         binding.mainLayout.visibility = View.VISIBLE

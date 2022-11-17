@@ -4,7 +4,10 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.markvtls.core.ui.BaseDiffUtil
 import com.markvtls.core.ui.RecyclerListItem
 
-internal class CartFragmentAdapter: AsyncListDifferDelegationAdapter<RecyclerListItem>(BaseDiffUtil()) {
+
+/**RecyclerView adapter for CartFragment.*/
+internal class CartFragmentAdapter :
+    AsyncListDifferDelegationAdapter<RecyclerListItem>(BaseDiffUtil()) {
 
     init {
         delegatesManager

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.1715" />
@@ -12,12 +13,14 @@
         <entry key="core/src/main/res/drawable/background_stroke.xml" value="0.1895" />
         <entry key="core/src/main/res/drawable/bottom_bar.xml" value="0.1595" />
         <entry key="core/src/main/res/drawable/bottom_bar_selector.xml" value="0.1595" />
+        <entry key="core/src/main/res/drawable/ic_add.xml" value="0.186" />
         <entry key="core/src/main/res/drawable/ic_back.xml" value="0.238" />
         <entry key="core/src/main/res/drawable/ic_basket.xml" value="0.238" />
         <entry key="core/src/main/res/drawable/ic_check.xml" value="0.1255" />
         <entry key="core/src/main/res/drawable/ic_empty_space.xml" value="0.1255" />
         <entry key="core/src/main/res/drawable/ic_favorite.xml" value="0.249" />
         <entry key="core/src/main/res/drawable/ic_favorite_filled.xml" value="0.1735" />
+        <entry key="core/src/main/res/drawable/ic_favorite_white.xml" value="0.186" />
         <entry key="core/src/main/res/drawable/ic_user.xml" value="0.2505" />
         <entry key="core/src/main/res/drawable/rounded.xml" value="0.1595" />
         <entry key="core/src/main/res/drawable/search_field.xml" value="0.1" />

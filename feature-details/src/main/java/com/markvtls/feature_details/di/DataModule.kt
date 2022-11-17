@@ -15,5 +15,6 @@ internal class DataModule {
 
     @Provides
     @Singleton
-    fun provideDetailsRepository(detailsApi: DetailsApiService): DetailsRepository = DetailsRepositoryImpl(detailsApi)
+    fun provideDetailsRepository(detailsApi: DetailsApiService): DetailsRepository =
+        DetailsRepositoryImpl(detailsApi)
 }

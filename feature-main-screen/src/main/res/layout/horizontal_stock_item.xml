@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hot sales"
+            android:text="@string/hot_sales"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/dark_blue"
@@ -28,7 +28,7 @@
             android:id="@+id/see_more_hot_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="see more"
+            android:text="@string/see_more"
             android:textColor="@color/orange"
             android:textSize="14sp"
             android:fontFamily="@font/mark_pro"

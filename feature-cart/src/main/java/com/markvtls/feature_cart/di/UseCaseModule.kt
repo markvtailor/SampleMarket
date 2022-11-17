@@ -2,7 +2,6 @@ package com.markvtls.feature_cart.di
 
 import com.markvtls.feature_cart.domain.repository.CartRepository
 import com.markvtls.feature_cart.domain.use_cases.GetCartInfoUseCase
-import com.markvtls.feature_cart.domain.use_cases.GetCartItemsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,8 +13,5 @@ internal class UseCaseModule {
 
     @Provides
     fun provideGetCartInfoUseCase(repository: CartRepository) = GetCartInfoUseCase(repository)
-
-    @Provides
-    fun provideGetCartItemsUseCase(repository: CartRepository) = GetCartItemsUseCase(repository)
 
 }
