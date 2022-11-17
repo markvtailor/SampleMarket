@@ -1,5 +1,6 @@
 # SampleMarket
 **Использованные технологии:** Fragments, RecyclerView, ViewPager2, Adapter Delegates, Dagger Hilt, Navigation Component, Retrofit, Moshi, Material3, Coil, SplashScreenAPI
+**Архитектура:** MVVM+CA+MultiModule  
 **Описание:**  
 Типовой интернет-магазин.  
 **ВИДЕО:**  
